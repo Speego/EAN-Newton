@@ -2,7 +2,7 @@
 
 using namespace ia;
 
-Interval<long double> NewtonRootsInterval(int n, std::vector<Interval<long double> > a, Interval<long double> x, int mit, Interval<long double> eps, Interval<long double>& w, int& it, int& st){
+Interval<long double> NewtonRootsInterval(int n, std::vector<Interval<long double> > a, Interval<long double> x, int mit, long double eps, Interval<long double>& w, int& it, int& st){
     Interval<long double> dw, u, v, xh;
     if (n < 1 || mit < 1)
         st = 1;
@@ -28,7 +28,15 @@ Interval<long double> NewtonRootsInterval(int n, std::vector<Interval<long doubl
                     st = 2;
                 else {
                     xh = x;
-                    //u = dokonczyc!
+                    u = xh.Absolute();
+                    x = x - w/dw;
+                    v = x.Absolute();
+                    if (v.a < u.a && v.b < u.b)
+                        v = u;
+                    if (v.b >= 0 && v.a <= 0)
+                        st = 0;
+                    else if (((x-xh).Absolute()/v).b <= eps)
+                        st = 0;
                 }
             } while (it != mit && st == 3);
         }

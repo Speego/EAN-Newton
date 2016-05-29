@@ -5,6 +5,6 @@
 
 #define abs(a) (((a)>=0) ? (a) : (-1*(a)))
 
-long double NewtonRootsNormal(int, std::vector<long double>, long double, int, long double, long double&, int&, int&);
+long double NewtonRootsNormal(int n, std::vector<long double> a, long double x, int mit, long double eps, long double& w, int& it, int& st);
 
 #endif // NEWTONROOTSNORMAL_H

@@ -61,6 +61,7 @@ public:
 	Interval<T> Projection();
 	Interval<T> Opposite();
 	Interval<T> Inverse();
+    Interval<T> Absolute();
 	T GetWidth();
 	static void Initialize();
 	static Interval<T> ISqr2();
@@ -340,8 +341,8 @@ template<typename T>
 inline Interval<T> Interval<T>::Opposite() {
 	Interval<T> x(this->a, this->b);
 	Interval<T> r;
-	r.a = -x.a;
-	r.b = -x.b;
+    r.a = -x.b;
+    r.b = -x.a;
 	return r;
 }
 
@@ -361,6 +362,21 @@ inline Interval<T> Interval<T>::Inverse() {
 		return z1;
 	else
 		return z2;
+}
+
+template<typename T>
+inline Interval<T> Interval<T>::Absolute() {
+    Interval<T> x(this->a, this->b);
+    Interval<T> tmp;
+
+    if (x.b < 0)
+        tmp = x.Opposite();
+    else if (x.a < 0) {
+        tmp.a = 0;
+        ((-1*x.a) > x.b) ? (tmp.b = (-1*x.a)) : (tmp.b = x.b);
+    }
+    else tmp = x;
+    return tmp;
 }
 
 template<typename T>
