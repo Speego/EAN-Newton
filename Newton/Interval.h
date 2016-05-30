@@ -174,7 +174,6 @@ inline Interval<T> operator -(Interval<T> x, const Interval<T>& y) {
 	}
 }
 
-
 template<typename T>
 inline Interval<T> Interval<T>::operator *(const Interval<T>& y) {
 	Interval<T> x(this->a, this->b);

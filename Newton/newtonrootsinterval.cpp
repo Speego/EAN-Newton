@@ -35,7 +35,7 @@ Interval<long double> NewtonRootsInterval(int n, std::vector<Interval<long doubl
                         v = u;
                     if (v.b >= 0 && v.a <= 0)
                         st = 0;
-                    else if (((x-xh).Absolute()/v).b <= eps)
+                    else if (((x-xh).Absolute()/v).a <= eps)
                         st = 0;
                 }
             } while (it != mit && st == 3);

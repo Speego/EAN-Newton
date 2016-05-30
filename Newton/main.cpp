@@ -16,7 +16,8 @@ int main(int argc, char *argv[])
     d.push_back(-2);d.push_back(0);d.push_back(1);
     e.push_back(0);e.push_back(0);e.push_back(0);e.push_back(0);e.push_back(0);e.push_back(1);e.push_back(0);e.push_back(-4);e.push_back(0);e.push_back(1);
     int it, st;
-    long double w;
+    long double w, eps;
+    eps = 1e-16;
     cout.precision(15);
 
     vector<ia::Interval<long double> > ai, bi, ci, di, ei;
@@ -32,46 +33,45 @@ int main(int argc, char *argv[])
 //    cout.precision(15);
 
     //pierwszy
-//    cout << "Normal\n" << NewtonRootsNormal(3,a,2,10,1e-16,w,it,st) << endl;
-//    cout << w << endl << it << endl << st << endl << "Interval\n";
-//    result = NewtonRootsInterval(3,ai,ia::Interval<long double>(2,2),10,1e-16,wi,it,st);
-//    cout << result.a << "; " << result.b << endl;
-//    cout << wi.a << "; " << wi.b << endl << it << endl << st << endl << endl;
-
-    //drugi
-    cout << "Normal\n" << NewtonRootsNormal(9,b,3,20,1e-16,w,it,st) << endl;
+    cout << "Normal\n" << NewtonRootsNormal(3,a,2,10,eps,w,it,st) << endl;
     cout << w << endl << it << endl << st << endl << "Interval\n";
-    result = NewtonRootsInterval(9,bi,ia::Interval<long double>(3,3),20,1e-16,wi,it,st);
+    result = NewtonRootsInterval(3,ai,ia::Interval<long double>(2,2),10,eps,wi,it,st);
     cout << result.a << "; " << result.b << endl;
     cout << wi.a << "; " << wi.b << endl << it << endl << st << endl << endl;
 
-//    //trzeci
-//    cout << "Normal\n" << NewtonRootsNormal(0,c,-1,10,1e-16,w,it,st) << endl;
-//    cout << w << endl << it << endl << st << endl << "Interval\n";
-//    result = NewtonRootsInterval(0,ci,ia::Interval<long double>(-1,-1),10,1e-16,wi,it,st);
-//    cout << result.a << "; " << result.b << endl;
-//    cout << wi.a << "; " << wi.b << endl << it << endl << st << endl << endl;
+    //drugi
+    cout << "Normal\n" << NewtonRootsNormal(9,b,3,20,eps,w,it,st) << endl;
+    cout << w << endl << it << endl << st << endl << "Interval\n";
+    result = NewtonRootsInterval(9,bi,ia::Interval<long double>(3,3),20,eps,wi,it,st);
+    cout << result.a << "; " << result.b << endl;
+    cout << wi.a << "; " << wi.b << endl << it << endl << st << endl << endl;
 
-//    //czwarty
-//    cout << "Normal\n" << NewtonRootsNormal(2,d,0,10,1e-16,w,it,st) << endl;
-//    cout << w << endl << it << endl << st << endl << "Interval\n";
-//    result = NewtonRootsInterval(2,di,ia::Interval<long double>(0,0),10,1e-16,wi,it,st);
-//    cout << result.a << "; " << result.b << endl;
-//    cout << wi.a << "; " << wi.b << endl << it << endl << st << endl << endl;
+    //trzeci
+    cout << "Normal\n" << NewtonRootsNormal(0,c,-1,10,eps,w,it,st) << endl;
+    cout << w << endl << it << endl << st << endl << "Interval\n";
+    result = NewtonRootsInterval(0,ci,ia::Interval<long double>(-1,-1),10,eps,wi,it,st);
+    cout << result.a << "; " << result.b << endl;
+    cout << wi.a << "; " << wi.b << endl << it << endl << st << endl << endl;
 
-//    //piaty
-//    cout << "Normal\n" << NewtonRootsNormal(9,e,3,8,1e-16,w,it,st) << endl;
-//    cout << w << endl << it << endl << st << endl << "Interval\n";
-//    result = NewtonRootsInterval(9,ei,ia::Interval<long double>(3,3),8,1e-16,wi,it,st);
-//    cout << result.a << "; " << result.b << endl;
-//    cout << wi.a << "; " << wi.b << endl << it << endl << st << endl << endl;
+    //czwarty
+    cout << "Normal\n" << NewtonRootsNormal(2,d,0,10,eps,w,it,st) << endl;
+    cout << w << endl << it << endl << st << endl << "Interval\n";
+    result = NewtonRootsInterval(2,di,ia::Interval<long double>(0,0),10,eps,wi,it,st);
+    cout << result.a << "; " << result.b << endl;
+    cout << wi.a << "; " << wi.b << endl << it << endl << st << endl << endl;
+
+    //piaty
+    cout << "Normal\n" << NewtonRootsNormal(9,e,3,8,eps,w,it,st) << endl;
+    cout << w << endl << it << endl << st << endl << "Interval\n";
+    result = NewtonRootsInterval(9,ei,ia::Interval<long double>(3,3),8,eps,wi,it,st);
+    cout << result.a << "; " << result.b << endl;
+    cout << wi.a << "; " << wi.b << endl << it << endl << st << endl << endl;
 
 
 //    ia::Interval<long double> *inter = new ia::Interval<long double>(3.0, 3.8);
 //    cout << inter->GetWidth() << "; " << inter->a << "; " << inter->b << endl;
 //    *inter = inter->Opposite();
 //    cout << inter->GetWidth() << "; " << inter->a << "; " << inter->b << endl;
-
 
     QApplication aPP(argc, argv);
     MainWindow window;
