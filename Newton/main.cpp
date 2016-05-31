@@ -28,9 +28,7 @@ int main(int argc, char *argv[])
     di.push_back(ia::Interval<long double>(-2,-2));di.push_back(ia::Interval<long double>(0,0));di.push_back(ia::Interval<long double>(1,1));
     ei.push_back(ia::Interval<long double>(0,0));ei.push_back(ia::Interval<long double>(0,0));ei.push_back(ia::Interval<long double>(0,0));ei.push_back(ia::Interval<long double>(0,0));ei.push_back(ia::Interval<long double>(0,0));
     ei.push_back(ia::Interval<long double>(1,1));ei.push_back(ia::Interval<long double>(0,0));ei.push_back(ia::Interval<long double>(-4,-4));ei.push_back(ia::Interval<long double>(0,0));ei.push_back(ia::Interval<long double>(1,1));
-//    int it, st;
     ia::Interval<long double> wi, result;
-//    cout.precision(15);
 
     //pierwszy
     cout << "Normal\n" << NewtonRootsNormal(3,a,2,10,eps,w,it,st) << endl;
@@ -66,12 +64,6 @@ int main(int argc, char *argv[])
     result = NewtonRootsInterval(9,ei,ia::Interval<long double>(3,3),8,eps,wi,it,st);
     cout << result.a << "; " << result.b << endl;
     cout << wi.a << "; " << wi.b << endl << it << endl << st << endl << endl;
-
-
-//    ia::Interval<long double> *inter = new ia::Interval<long double>(3.0, 3.8);
-//    cout << inter->GetWidth() << "; " << inter->a << "; " << inter->b << endl;
-//    *inter = inter->Opposite();
-//    cout << inter->GetWidth() << "; " << inter->a << "; " << inter->b << endl;
 
     QApplication aPP(argc, argv);
     MainWindow window;
