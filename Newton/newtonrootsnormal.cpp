@@ -27,14 +27,14 @@ long double NewtonRootsNormal(int n, std::vector<long double> a, long double x, 
                     st = 2;
                 else {
                     xh = x;
-                    u = abs(xh);
+                    u = absolute(xh);
                     x = x - w/dw;
-                    v = abs(x);
+                    v = absolute(x);
                     if (v < u)
                         v = u;
                     if (v == 0)
                         st = 0;
-                    else if (abs(x-xh)/v <= eps)
+                    else if (absolute(x-xh)/v <= eps)
                         st = 0;
                 }
             } while (it != mit && st == 3);

@@ -17,14 +17,14 @@
    <widget class="QLabel" name="title">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>190</x>
       <y>0</y>
-      <width>741</width>
+      <width>821</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>Program liczący pierwiastki wielomianu metodą Newtona za pomocą zwykłej oraz przedziałowej arytmetyki.</string>
+     <string>Program liczący pierwiastki wielomianu metodą Newtona za pomocą zmiennopozycyjnej oraz przedziałowej arytmetyki.</string>
     </property>
    </widget>
    <widget class="QGroupBox" name="boxArithmeticChoice">
@@ -44,12 +44,15 @@
       <rect>
        <x>0</x>
        <y>20</y>
-       <width>81</width>
+       <width>161</width>
        <height>22</height>
       </rect>
      </property>
      <property name="text">
-      <string>zwykła</string>
+      <string>zmiennopozycyjna</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QRadioButton" name="radioButtonArithmeticInterval">
@@ -91,19 +94,6 @@
       <number>9999</number>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButtonN">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>30</y>
-       <width>61</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>OK</string>
-     </property>
-    </widget>
    </widget>
    <widget class="QGroupBox" name="boxXChoice">
     <property name="geometry">
@@ -122,12 +112,15 @@
       <rect>
        <x>0</x>
        <y>20</y>
-       <width>241</width>
+       <width>211</width>
        <height>27</height>
       </rect>
      </property>
+     <property name="inputMethodHints">
+      <set>Qt::ImhFormattedNumbersOnly</set>
+     </property>
      <property name="decimals">
-      <number>20</number>
+      <number>16</number>
      </property>
      <property name="minimum">
       <double>-9999.000000000000000</double>
@@ -144,12 +137,12 @@
       <rect>
        <x>0</x>
        <y>50</y>
-       <width>241</width>
+       <width>211</width>
        <height>27</height>
       </rect>
      </property>
      <property name="decimals">
-      <number>20</number>
+      <number>16</number>
      </property>
      <property name="minimum">
       <double>-9999.000000000000000</double>
@@ -205,12 +198,12 @@
       <rect>
        <x>0</x>
        <y>20</y>
-       <width>241</width>
+       <width>211</width>
        <height>27</height>
       </rect>
      </property>
      <property name="decimals">
-      <number>20</number>
+      <number>16</number>
      </property>
      <property name="minimum">
       <double>0.000000000000000</double>
@@ -240,12 +233,12 @@
       <rect>
        <x>10</x>
        <y>440</y>
-       <width>241</width>
+       <width>211</width>
        <height>27</height>
       </rect>
      </property>
      <property name="decimals">
-      <number>20</number>
+      <number>16</number>
      </property>
      <property name="minimum">
       <double>-9999.000000000000000</double>
@@ -262,12 +255,12 @@
       <rect>
        <x>10</x>
        <y>470</y>
-       <width>241</width>
+       <width>211</width>
        <height>27</height>
       </rect>
      </property>
      <property name="decimals">
-      <number>20</number>
+      <number>16</number>
      </property>
      <property name="minimum">
       <double>-9999.000000000000000</double>

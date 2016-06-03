@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#define abs(a) (((a)>=0) ? (a) : (-1*(a)))
+#define absolute(a) (((a)>=0) ? (a) : (-1*(a)))
 
 long double NewtonRootsNormal(int n, std::vector<long double> a, long double x, int mit, long double eps, long double& w, int& it, int& st);
 
