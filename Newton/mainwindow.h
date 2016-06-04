@@ -9,7 +9,10 @@
 #include <QDebug>
 #include <QLocale>
 #include <QMainWindow>
+#include <QMessageBox>
 #include <QString>
+#include <QTableWidget>
+#include <QValidator>
 
 namespace Ui {
 class MainWindow;
@@ -30,29 +33,36 @@ private slots:
 
     void on_radioButtonArithmeticInterval_clicked();
 
-    void on_spinBoxX_a_valueChanged(const QString &arg1);
-
-    void on_spinBoxX_b_valueChanged(const QString &arg1);
-
     void on_spinBoxMit_valueChanged(int arg1);
 
     void on_pushButtonCount_clicked();
-
-    void on_spinBoxEps_valueChanged(const QString &arg1);
-
-    void on_spinBoxAi_a_valueChanged(const QString &arg1);
-
-    void on_spinBoxAi_b_valueChanged(const QString &arg1);
 
     void on_pushButtonAiAdd_clicked();
 
     void on_pushButtonAiRemove_clicked();
 
-    void on_textEdit_textChanged();
+    void on_pushButtonRemoveAll_clicked();
 
-    void on_lineEdit_textChanged(const QString &arg1);
+    void on_lineEditX_a_returnPressed();
+
+    void on_lineEditX_b_returnPressed();
+
+    void on_lineEditEps_returnPressed();
+
+    void on_lineEditAi_a_returnPressed();
+
+    void on_lineEditAi_b_returnPressed();
 
 private:
+    bool normalOrInterval = false, ok;
+    int n = 0, mit = 0, it, st;
+    vector<long double> a;
+    long double x_a = 0, x_b = 0, w, eps = 1e-16, a_a = 0, a_b = 0, result;
+    vector<ia::Interval<long double> > ai;
+    ia::Interval<long double> xi, wi, epsi, resulti;
+
+    void clearResults();
+
     Ui::MainWindow *ui;
 };
 
