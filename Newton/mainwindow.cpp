@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     titles << "a_lewy" << "a_prawy";
     ui->tableWidgetVector->setHorizontalHeaderLabels(titles);
     titles.clear();
-    titles << "wynik" << "w" << "it" << "st";
+    titles << "wynik" << "w" << "it" << "st" << "x.width" << "w.width";
     ui->tableWidgetResults->setVerticalHeaderLabels(titles);
 
     ui->lineEditX_a->setValidator(new QDoubleValidator(-9999,9999,16,this));
@@ -109,9 +109,11 @@ void MainWindow::on_pushButtonAiAdd_clicked()
 
 void MainWindow::on_pushButtonAiRemove_clicked()
 {
-    ui->tableWidgetVector->removeRow(ui->tableWidgetVector->rowCount()-1);
-    a.pop_back();
-    ai.pop_back();
+    if (ui->tableWidgetVector->rowCount() > 0){
+        ui->tableWidgetVector->removeRow(ui->tableWidgetVector->rowCount()-1);
+        a.pop_back();
+        ai.pop_back();
+    }
 }
 
 void MainWindow::on_pushButtonRemoveAll_clicked()
@@ -142,6 +144,8 @@ void MainWindow::on_pushButtonCount_clicked()
                     ui->tableWidgetResults->setItem(1,0,new QTableWidgetItem(QString::number(wi.a,'e',15)));
                     ui->tableWidgetResults->setItem(1,1,new QTableWidgetItem(QString::number(wi.b,'e',15)));
                     ui->tableWidgetResults->setItem(2,0,new QTableWidgetItem(QString::number(it, 'g', 10)));
+                    ui->tableWidgetResults->setItem(4,0,new QTableWidgetItem(QString::number(resulti.GetWidth(), 'e', 15)));
+                    ui->tableWidgetResults->setItem(5,0,new QTableWidgetItem(QString::number(wi.GetWidth(), 'e', 15)));
                 }
             } else QMessageBox::information(this,"ERROR!",tr("x.b musi być większe równe x.a!"));
         } else {
